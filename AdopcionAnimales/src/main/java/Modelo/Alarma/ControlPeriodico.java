@@ -1,4 +1,9 @@
 package Modelo.Alarma;
 
-public class ControlPeriodico {
+import java.util.ArrayList;
+
+public class ControlPeriodico extends Control{
+    public ControlPeriodico(ArrayList<Accion> acciones) {
+        super(acciones);
+    }
 }
