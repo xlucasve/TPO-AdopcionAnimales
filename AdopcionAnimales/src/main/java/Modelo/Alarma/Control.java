@@ -6,15 +6,19 @@ public class Control {
 
     private ArrayList<Accion> acciones;
 
-    public Control(ArrayList<Accion> acciones) {
-        this.acciones = acciones;
+    public Control() {
+        this.acciones = new ArrayList<Accion>();
     }
 
     public ArrayList<Accion> getAcciones() {
         return acciones;
     }
 
-    public void setAcciones(ArrayList<Accion> acciones) {
-        this.acciones = acciones;
+    public void agregarAccionIndividual(Accion accion){
+        acciones.add(accion);
+    }
+
+    public void agregarAccionesPorLista(ArrayList<Accion> listaAcciones){
+        acciones.addAll(listaAcciones);
     }
 }

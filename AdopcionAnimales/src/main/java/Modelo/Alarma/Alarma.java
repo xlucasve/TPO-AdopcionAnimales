@@ -10,11 +10,11 @@ public class Alarma{
     private iEstadoAlarma estadoAlarma;
     private Date ultimaEjecucion;
 
-    public Alarma(int periocidad, ArrayList<Control> controles, iEstadoAlarma estadoAlarma, Date ultimaEjecucion) {
+    public Alarma(int periocidad) {
         this.periocidad = periocidad;
-        this.controles = controles;
-        this.estadoAlarma = estadoAlarma;
-        this.ultimaEjecucion = ultimaEjecucion;
+        this.controles = new ArrayList<Control>();
+        this.estadoAlarma = new NoAceptada();
+        this.ultimaEjecucion = new Date();
     }
 
     public int getPeriocidad() {
@@ -29,8 +29,8 @@ public class Alarma{
         return controles;
     }
 
-    public void setControles(ArrayList<Control> controles) {
-        this.controles = controles;
+    public void agregarControl(Control control) {
+        this.controles.add(control);
     }
 
     public iEstadoAlarma getEstadoAlarma() {
