@@ -1,4 +1,13 @@
 package Modelo.Alarma;
 
-public class SeguimientoTratamiento {
+import java.util.ArrayList;
+
+public class SeguimientoTratamiento extends Control{
+
+    // private TratamientoMedico tratamientoSeguir;
+
+    public SeguimientoTratamiento() {
+        super();
+    }
+
 }
