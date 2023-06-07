@@ -1,5 +1,7 @@
 package Modelo.Alarma;
 
+import Controllers.AlarmaController;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -47,6 +49,7 @@ public class EjecutadorAlarma {
         long diferenciaInMin;
         long tiempoActualInMs = dateNow.getTime();
         long ultimaEjecucionAlarmaInMs;
+        AlarmaController alarmaController = AlarmaController.getInstancia();
 
         for (Alarma alarma : listadoAlarmas){
 
@@ -55,7 +58,7 @@ public class EjecutadorAlarma {
             diferenciaInMin = TimeUnit.MILLISECONDS.toMinutes(diferenciaInMs); //Calculo minutos desde que se disparo
 
             if (diferenciaInMin >= this.cuantoMin){ //Chequeo si disparo la alarma
-                alarma.dispararAlarma();
+                alarmaController.dispararAlarma(alarma);
             }
 
         }

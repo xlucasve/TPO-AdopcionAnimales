@@ -49,7 +49,9 @@ public class Alarma{
         this.ultimaEjecucion = ultimaEjecucion;
     }
 
-    public void dispararAlarma(){}
+    public void dispararAlarma(){
+        System.out.println("La alarma ha sido disparada");
+    }
 
     //Cambia el estado a no aceptada
     public void aceptarAlarma(){
