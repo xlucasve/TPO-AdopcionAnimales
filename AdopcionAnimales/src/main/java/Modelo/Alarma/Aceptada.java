@@ -1,5 +1,7 @@
 package Modelo.Alarma;
 
+import Modelo.Usuario.Usuario;
+
 public class Aceptada implements iEstadoAlarma{
     private Usuario aceptadaPor;
 
