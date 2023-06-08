@@ -20,7 +20,6 @@ public class AlarmaController {
     }
 
     public void dispararAlarma(Alarma alarma){
-        System.out.println("El controlador esta disparando la alarma");
         alarma.dispararAlarma();
     }
 
