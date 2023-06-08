@@ -4,5 +4,5 @@ import Modelo.Usuario.Usuario;
 
 public interface iEstadoAlarma {
 
-    public void aceptarAlarma(Usuario usuario);
+    public void aceptarAlarma(Alarma alarma, Usuario usuario);
 }

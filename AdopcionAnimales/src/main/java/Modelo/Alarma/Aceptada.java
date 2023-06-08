@@ -6,9 +6,8 @@ public class Aceptada implements iEstadoAlarma{
     private Usuario aceptadaPor;
 
     //private Usuario aceptadaPor;
-    public void aceptarAlarma(Usuario usuario) {
-        this.aceptadaPor = usuario;
-        System.out.println("La alarma ya fue aceptada previamente por" + this.aceptadaPor.getNombre());
+    public void aceptarAlarma(Alarma alarma, Usuario usuario) {
+        System.out.println("La alarma ya fue aceptada previamente por " + this.aceptadaPor.getNombre() + " " + this.aceptadaPor.getApellido());
     }
 
     public Usuario getUsuario() {

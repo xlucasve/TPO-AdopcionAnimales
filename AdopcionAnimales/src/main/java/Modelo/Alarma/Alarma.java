@@ -1,5 +1,7 @@
 package Modelo.Alarma;
 
+import Modelo.Usuario.Usuario;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -56,8 +58,8 @@ public class Alarma{
     }
 
     //Cambia el estado a no aceptada
-    public void aceptarAlarma(){
-        this.estadoAlarma = new Aceptada();
+    public void aceptarAlarma(Usuario usuario){
+        this.estadoAlarma.aceptarAlarma(this, usuario);
     }
 
     public void modificarAlarma(){}

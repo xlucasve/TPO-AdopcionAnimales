@@ -16,9 +16,10 @@ public class UsuarioController {
         return instancia;
     }
 
-    public void crearUsuario(String nombre, String apellido, int telefono, int edad, int dni, String estadoCivil, TipoUsuario tipoUsuario){
+    public Usuario crearUsuario(String nombre, String apellido, int telefono, int edad, int dni, String estadoCivil, TipoUsuario tipoUsuario){
        Usuario usuario = new Usuario(nombre, apellido, telefono, edad, dni, estadoCivil, tipoUsuario);
         SistemaNotificacion sistemaNotificacion = SistemaNotificacion.getInstancia();
         sistemaNotificacion.agregarUsuario(usuario);
+        return usuario;
     }
 }
