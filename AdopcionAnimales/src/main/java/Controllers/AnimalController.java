@@ -5,7 +5,7 @@ public class AnimalController {
 
     private AnimalController(){}
 
-    public AnimalController getInstancia(){
+    public static AnimalController getInstancia(){
         if (instancia == null){
             instancia = new AnimalController();
         }

@@ -1,5 +1,7 @@
 package Modelo.Alarma;
 
+import Modelo.Usuario.Usuario;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -9,12 +11,14 @@ public class Alarma{
     private ArrayList<Control> controles;
     private iEstadoAlarma estadoAlarma;
     private Date ultimaEjecucion;
+    private iAlarmaAdapter notificador;
 
     public Alarma(int periocidad, Date ultimaEjecucion) {
         this.periocidad = periocidad;
         this.controles = new ArrayList<Control>();
         this.estadoAlarma = new NoAceptada();
         this.ultimaEjecucion = ultimaEjecucion;
+        this.notificador = SistemaNotificacion.getInstancia();
     }
 
     public int getPeriocidad() {
@@ -50,12 +54,12 @@ public class Alarma{
     }
 
     public void dispararAlarma(){
-        System.out.println("La alarma ha sido disparada");
+        notificador.disparAlarma(this);
     }
 
     //Cambia el estado a no aceptada
-    public void aceptarAlarma(){
-        this.estadoAlarma = new Aceptada();
+    public void aceptarAlarma(Usuario usuario){
+        this.estadoAlarma.aceptarAlarma(this, usuario);
     }
 
     public void modificarAlarma(){}

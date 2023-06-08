@@ -5,7 +5,7 @@ public class FichaTecnicaController {
 
     private FichaTecnicaController(){}
 
-    public FichaTecnicaController getInstancia(){
+    public static FichaTecnicaController getInstancia(){
         if (instancia == null){
             instancia = new FichaTecnicaController();
         }

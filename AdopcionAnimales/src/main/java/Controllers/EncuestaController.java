@@ -12,7 +12,7 @@ public class EncuestaController {
 
     private EncuestaController(){}
 
-    public EncuestaController getInstancia(){
+    public static EncuestaController getInstancia(){
         if (instancia == null){
             instancia = new EncuestaController();
         }

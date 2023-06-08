@@ -1,6 +1,10 @@
 package Controllers;
 
 import Modelo.Alarma.Alarma;
+import Modelo.Alarma.Control;
+import Modelo.Usuario.Usuario;
+
+import java.util.Date;
 
 public class AlarmaController {
 
@@ -17,7 +21,19 @@ public class AlarmaController {
     }
 
     public void dispararAlarma(Alarma alarma){
-        System.out.println("El controlador esta disparando la alarma");
         alarma.dispararAlarma();
+    }
+
+    public Alarma crearAlarma(){
+        return new Alarma(0, new Date());
+    }
+
+    public void agregarControl(Alarma alarma, Control control){
+        alarma.agregarControl(control);
+    }
+
+    public void aceptarAlarma(Alarma alarma, Usuario usuario){
+        alarma.aceptarAlarma(usuario);
+
     }
 }
