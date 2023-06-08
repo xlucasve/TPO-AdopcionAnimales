@@ -2,6 +2,7 @@ package Modelo.Alarma;
 
 import Controllers.AlarmaController;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -45,22 +46,31 @@ public class EjecutadorAlarma {
     public void ejecutar(){
 
         Date dateNow = new Date();
-        long diferenciaInMs;
-        long diferenciaInMin;
         long tiempoActualInMs = dateNow.getTime();
-        long ultimaEjecucionAlarmaInMs;
-        AlarmaController alarmaController = AlarmaController.getInstancia();
+        long tiempoActualInMin = TimeUnit.MILLISECONDS.toMinutes(tiempoActualInMs);
+        long tiempoUltimaBarridaInMs = ultimaBarrida.getTime();
+        long tiempoUltimaBarridaInMin = TimeUnit.MILLISECONDS.toMinutes(tiempoUltimaBarridaInMs);
+        long diferenciaDesdeUltimaBarrida = tiempoActualInMin - tiempoUltimaBarridaInMin;
 
-        for (Alarma alarma : listadoAlarmas){
+        if (diferenciaDesdeUltimaBarrida >= cuantoMin){
+            long diferenciaInMs;
+            long diferenciaInMin;
+            long ultimaEjecucionAlarmaInMs;
+            AlarmaController alarmaController = AlarmaController.getInstancia();
 
-            ultimaEjecucionAlarmaInMs = alarma.getUltimaEjecucion().getTime();
-            diferenciaInMs = tiempoActualInMs - ultimaEjecucionAlarmaInMs;
-            diferenciaInMin = TimeUnit.MILLISECONDS.toMinutes(diferenciaInMs); //Calculo minutos desde que se disparo
+            for (Alarma alarma : listadoAlarmas){
 
-            if (diferenciaInMin >= this.cuantoMin){ //Chequeo si disparo la alarma
-                alarmaController.dispararAlarma(alarma);
+                ultimaEjecucionAlarmaInMs = alarma.getUltimaEjecucion().getTime();
+                diferenciaInMs = tiempoActualInMs - ultimaEjecucionAlarmaInMs;
+                diferenciaInMin = TimeUnit.MILLISECONDS.toMinutes(diferenciaInMs); //Calculo minutos desde que se disparo
+
+                if (diferenciaInMin >= alarma.getPeriocidad()){ //Chequeo si disparo la alarma
+                    alarmaController.dispararAlarma(alarma);
+                }
+
             }
-
         }
+
+
     }
 }
