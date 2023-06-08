@@ -1,4 +1,7 @@
+import Controllers.AlarmaController;
+import Modelo.Alarma.Accion;
 import Modelo.Alarma.Alarma;
+import Modelo.Alarma.Control;
 import Modelo.Alarma.EjecutadorAlarma;
 import org.junit.jupiter.api.Test;
 
@@ -21,10 +24,14 @@ public class Tests {
 
     @Test
     public void pruebaFechas(){
-        ArrayList<Alarma> listaAlarmas = new ArrayList<>();
-        Alarma alarma1 = new Alarma(0, new Date());
-        listaAlarmas.add(alarma1);
-        EjecutadorAlarma ejc = new EjecutadorAlarma(listaAlarmas, 0, new Date());
+        AlarmaController alarmaController = AlarmaController.getInstancia();
+
+        Alarma alarma1 = alarmaController.crearAlarma();
+        Control control = new Control();
+        control.agregarAccionIndividual(new Accion("Chequear oreja perro", "Mirar si el perro tiene hongos en la oreja"));
+        alarmaController.agregarControl(alarma1, control);
+        EjecutadorAlarma ejc = EjecutadorAlarma.getInstancia();
+        ejc.agregarAlarma(alarma1);
         ejc.ejecutar();
     }
 }

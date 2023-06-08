@@ -6,7 +6,7 @@ public class ClienteController {
 
     private ClienteController(){}
 
-    public ClienteController getInstancia(){
+    public static ClienteController getInstancia(){
         if (instancia == null){
             instancia = new ClienteController();
         }

@@ -5,7 +5,7 @@ public class SeguimientoAnimalController {
 
     private SeguimientoAnimalController(){}
 
-    public SeguimientoAnimalController getInstancia(){
+    public static SeguimientoAnimalController getInstancia(){
         if (instancia == null){
             instancia = new SeguimientoAnimalController();
         }

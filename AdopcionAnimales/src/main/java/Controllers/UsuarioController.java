@@ -5,7 +5,7 @@ public class UsuarioController {
 
     private UsuarioController(){}
 
-    public UsuarioController getInstancia(){
+    public static UsuarioController getInstancia(){
         if (instancia == null){
             instancia = new UsuarioController();
         }

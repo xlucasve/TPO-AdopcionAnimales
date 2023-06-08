@@ -5,7 +5,7 @@ public class AdopcionController {
 
     private AdopcionController(){}
 
-    public AdopcionController getInstancia(){
+    public static AdopcionController getInstancia(){
         if (instancia == null){
             instancia = new AdopcionController();
         }

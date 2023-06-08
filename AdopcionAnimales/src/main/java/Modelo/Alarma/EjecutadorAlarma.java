@@ -9,22 +9,26 @@ import java.util.concurrent.TimeUnit;
 
 public class EjecutadorAlarma {
 
+    private static EjecutadorAlarma instancia;
     private ArrayList<Alarma> listadoAlarmas;
     private Integer cuantoMin;
     private Date ultimaBarrida;
 
-    public EjecutadorAlarma(ArrayList<Alarma> listadoAlarmas, Integer cuantoMin, Date ultimaBarrida) {
-        this.listadoAlarmas = listadoAlarmas;
-        this.cuantoMin = cuantoMin;
-        this.ultimaBarrida = ultimaBarrida;
+    private EjecutadorAlarma() {
+        this.listadoAlarmas = new ArrayList<>();
+        this.cuantoMin = 0;
+        this.ultimaBarrida = new Date();
+    }
+
+    public static EjecutadorAlarma getInstancia(){
+        if (instancia == null){
+            instancia = new EjecutadorAlarma();
+        }
+        return instancia;
     }
 
     public ArrayList<Alarma> getListadoAlarmas() {
         return listadoAlarmas;
-    }
-
-    public void setListadoAlarmas(ArrayList<Alarma> listadoAlarmas) {
-        this.listadoAlarmas = listadoAlarmas;
     }
 
     public Integer getCuantoMin() {
@@ -39,20 +43,18 @@ public class EjecutadorAlarma {
         return ultimaBarrida;
     }
 
-    public void setUltimaBarrida(Date ultimaBarrida) {
-        this.ultimaBarrida = ultimaBarrida;
+    public void agregarAlarma(Alarma alarma){
+        listadoAlarmas.add(alarma);
     }
 
     public void ejecutar(){
 
         Date dateNow = new Date();
         long tiempoActualInMs = dateNow.getTime();
-        long tiempoActualInMin = TimeUnit.MILLISECONDS.toMinutes(tiempoActualInMs);
-        long tiempoUltimaBarridaInMs = ultimaBarrida.getTime();
-        long tiempoUltimaBarridaInMin = TimeUnit.MILLISECONDS.toMinutes(tiempoUltimaBarridaInMs);
-        long diferenciaDesdeUltimaBarrida = tiempoActualInMin - tiempoUltimaBarridaInMin;
+        long diferenciaDesdeUltimaBarrida = calcularTiempoDesdeUltimaBarrida(tiempoActualInMs);
 
         if (diferenciaDesdeUltimaBarrida >= cuantoMin){
+
             long diferenciaInMs;
             long diferenciaInMin;
             long ultimaEjecucionAlarmaInMs;
@@ -67,10 +69,16 @@ public class EjecutadorAlarma {
                 if (diferenciaInMin >= alarma.getPeriocidad()){ //Chequeo si disparo la alarma
                     alarmaController.dispararAlarma(alarma);
                 }
-
             }
         }
+    }
 
+    private long calcularTiempoDesdeUltimaBarrida(long tiempoActualInMs){
 
+        long tiempoActualInMin = TimeUnit.MILLISECONDS.toMinutes(tiempoActualInMs);
+        long tiempoUltimaBarridaInMs = ultimaBarrida.getTime();
+        long tiempoUltimaBarridaInMin = TimeUnit.MILLISECONDS.toMinutes(tiempoUltimaBarridaInMs);
+
+        return tiempoActualInMin - tiempoUltimaBarridaInMin;
     }
 }
