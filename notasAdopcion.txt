@@ -1,0 +1,5 @@
+-Habria q eliminar maxMascotas de adopcion, ya lo verifico en el clienteController
+
+-Cambiar 'animalAdoptado: FichaTecnica' por un int que seria el id de referencia de la ficha tecnica
+
+Por ahora se puede realizar la adopcion, habria q poner q saque la fecha del sistema y ver lo de modificar una adopcion

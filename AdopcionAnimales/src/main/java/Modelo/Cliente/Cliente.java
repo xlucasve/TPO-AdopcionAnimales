@@ -1,5 +1,10 @@
 package Modelo.Cliente;
 
+import Controllers.AdopcionController;
+import Modelo.Animal.Adopcion;
+
+import java.util.Date;
+
 public class Cliente {
     private String nombre;
     private String apellido;
@@ -25,6 +30,13 @@ public class Cliente {
         this.animalesInteresados = animalesInteresados;
     }
 
+    public void adoptar(int idFicha){
+        // aca hacer que fecha sea la del momento de la ejecucion pero nose jaja
+        Date fecha = new Date();
+        AdopcionController adopcionController = AdopcionController.getInstancia();
+        Adopcion adopcion = adopcionController.crearAdopcion(this,false, fecha, idFicha);
+        this.mascotas = this.mascotas + 1;
+    }
     public String getNombre() {
         return nombre;
     }

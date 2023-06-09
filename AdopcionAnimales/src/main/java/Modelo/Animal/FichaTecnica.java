@@ -12,12 +12,12 @@ public class FichaTecnica {
     private boolean adoptado;
     private EstrategiaExportar estrategiaExportar;
 
-    public FichaTecnica(int idFicha, boolean adoptado, EstrategiaExportar estrategiaExportar) {
+    public FichaTecnica(int idFicha,boolean enTratamiento, EstrategiaExportar estrategiaExportar) {
         this.idFicha = idFicha;
-        this.enTratamiento = false;
+        this.enTratamiento = enTratamiento;
         this.historialTratamientosMedicos = new ArrayList<>();
         this.historialSeguimientoAnimal = new ArrayList<>();
-        this.adoptado = adoptado;
+        this.adoptado = false;
         this.estrategiaExportar = estrategiaExportar;
     }
 

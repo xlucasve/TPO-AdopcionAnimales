@@ -10,5 +10,16 @@ public class Adopcion {
     private Cliente cliente;
     private boolean maxMascotas;
     private Date fechaAdopcion;
-    private FichaTecnica fichaTecnica;
+    private int animalAdoptado;
+
+    public Adopcion(Cliente cliente, boolean maxMascotas, Date fechaAdopcion, int idfichaTecnica){
+        this.cliente = cliente;
+        this.maxMascotas = maxMascotas;
+        this.fechaAdopcion = fechaAdopcion;
+        this.animalAdoptado = idfichaTecnica;
+    }
+
+
+
+
 }

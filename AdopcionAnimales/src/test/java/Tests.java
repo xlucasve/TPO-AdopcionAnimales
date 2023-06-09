@@ -1,8 +1,10 @@
 import Controllers.AlarmaController;
 import Controllers.ClienteController;
+import Controllers.FichaTecnicaController;
 import Controllers.UsuarioController;
 import Modelo.Alarma.*;
 import Modelo.Cliente.Cliente;
+import Modelo.Animal.FichaTecnica;
 import Modelo.Recordatorio.*;
 import Modelo.Usuario.TipoUsuario;
 import Modelo.Usuario.Usuario;
@@ -71,5 +73,18 @@ public class Tests {
 
         recordador.cambiarEstrategia(new RecordatorioWhatsApp());
         recordador.recordar(notificacion);
+    }
+
+    @Test
+    public void testRealizarAdopcion(){
+        ClienteController clienteController = ClienteController.getInstancia();
+        Cliente cliente1 = clienteController.crearCliente("ClienteNombre", "ClienteApellido", 13434343, "Cliente@email.com", 1184302340, "Soltero", "Programador", 1, "Quiero un animal", "Perros y gatos");
+
+        FichaTecnicaController fichaTecnicaController = FichaTecnicaController.getInstancia();
+        FichaTecnica fichaTecnica = fichaTecnicaController.crearFichaTecnica(1,false,null);
+
+        clienteController.realizarAdopcion(1,cliente1);
+
+
     }
 }
