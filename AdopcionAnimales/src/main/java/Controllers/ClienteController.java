@@ -23,7 +23,7 @@ public class ClienteController {
     }
     public void realizarAdopcion(int idFicha, Cliente cliente){
         if (cliente.getMascotas() == 2){
-            System.out.println("Maximo de mascotas, no se puede adoptar");
+            System.out.println("Maximo de mascotas, no se puede adoptar.");
         }
         else {
             System.out.println("Pasa validacion max mascotas");
