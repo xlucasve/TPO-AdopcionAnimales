@@ -1,5 +1,6 @@
 package Modelo.Recordatorio;
 
+import Modelo.Cliente.Cliente;
 import Modelo.Usuario.Usuario;
 
 import java.util.Date;
@@ -9,12 +10,14 @@ public class Notificacion {
     private Usuario visitadorResponsable;
     private Date horarioInicio;
     private Date horarioTermino;
+    private Cliente clienteARecordar;
 
-    public Notificacion(Date fechaVisita, Usuario visitadorResponsable, Date horarioInicio, Date horarioTermino) {
+    public Notificacion(Date fechaVisita, Usuario visitadorResponsable, Date horarioInicio, Date horarioTermino, Cliente clienteARecordar) {
         this.fechaVisita = fechaVisita;
         this.visitadorResponsable = visitadorResponsable;
         this.horarioInicio = horarioInicio;
         this.horarioTermino = horarioTermino;
+        this.clienteARecordar = clienteARecordar;
     }
 
     public Date getFechaVisita() {
@@ -48,4 +51,9 @@ public class Notificacion {
     public void setHorarioTermino(Date horarioTermino) {
         this.horarioTermino = horarioTermino;
     }
+
+    public Cliente getClienteARecordar() {
+        return clienteARecordar;
+    }
+
 }

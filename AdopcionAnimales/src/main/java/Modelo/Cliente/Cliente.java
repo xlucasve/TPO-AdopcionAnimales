@@ -11,4 +11,97 @@ public class Cliente {
     private int mascotas;
     private String motivoAdopcion;
     private String animalesInteresados;
+
+    public Cliente(String nombre, String apellido, int dni, String email, int telefono, String estadoCivil, String ocupacion, int mascotas, String motivoAdopcion, String animalesInteresados) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.email = email;
+        this.telefono = telefono;
+        this.estadoCivil = estadoCivil;
+        this.ocupacion = ocupacion;
+        this.mascotas = mascotas;
+        this.motivoAdopcion = motivoAdopcion;
+        this.animalesInteresados = animalesInteresados;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public int getDni() {
+        return dni;
+    }
+
+    public void setDni(int dni) {
+        this.dni = dni;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getEstadoCivil() {
+        return estadoCivil;
+    }
+
+    public void setEstadoCivil(String estadoCivil) {
+        this.estadoCivil = estadoCivil;
+    }
+
+    public String getOcupacion() {
+        return ocupacion;
+    }
+
+    public void setOcupacion(String ocupacion) {
+        this.ocupacion = ocupacion;
+    }
+
+    public int getMascotas() {
+        return mascotas;
+    }
+
+    public void setMascotas(int mascotas) {
+        this.mascotas = mascotas;
+    }
+
+    public String getMotivoAdopcion() {
+        return motivoAdopcion;
+    }
+
+    public void setMotivoAdopcion(String motivoAdopcion) {
+        this.motivoAdopcion = motivoAdopcion;
+    }
+
+    public String getAnimalesInteresados() {
+        return animalesInteresados;
+    }
+
+    public void setAnimalesInteresados(String animalesInteresados) {
+        this.animalesInteresados = animalesInteresados;
+    }
 }
