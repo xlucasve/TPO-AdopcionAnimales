@@ -19,9 +19,3 @@ public class AnimalController {
         return animal;
     }
 }
-
-
-//    public FichaTecnica crearFichaTecnica(Animal animal, int idFicha, boolean enTratamiento, EstrategiaExportar estrategiaExportar){
-//        FichaTecnica fichaTecnica = new FichaTecnica(animal,idFicha,enTratamiento, estrategiaExportar);
-//        return fichaTecnica;
-//    }
