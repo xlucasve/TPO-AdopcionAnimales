@@ -71,7 +71,24 @@ public class FichaTecnica {
         this.estrategiaExportar = estrategiaExportar;
     }
 
+    public Animal getAnimal() {
+        return animal;
+    }
+
     public void exportar(){
         estrategiaExportar.exportarFicha(this);
+    }
+
+    @Override
+    public String toString() {
+        return "FichaTecnica{" +
+                "animal=" + animal +
+                ", idFicha=" + idFicha +
+                ", enTratamiento=" + enTratamiento +
+                ", historialTratamientosMedicos=" + historialTratamientosMedicos +
+                ", historialSeguimientoAnimal=" + historialSeguimientoAnimal +
+                ", adoptado=" + adoptado +
+                ", estrategiaExportar=" + estrategiaExportar +
+                '}';
     }
 }

@@ -6,7 +6,6 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class ExportarPDF implements EstrategiaExportar {
 
