@@ -1,5 +1,7 @@
 package Controllers;
 
+import Modelo.Animal.Animal;
+
 public class AnimalController {
     private static AnimalController instancia;
 
@@ -10,5 +12,10 @@ public class AnimalController {
             instancia = new AnimalController();
         }
         return instancia;
+    }
+
+    public Animal crearAnimal(int animalID, float peso, float altura,boolean domestico,String especie, int edad, String nombre) {
+        Animal animal = new Animal(animalID,peso,altura,domestico,especie,edad,nombre);
+        return animal;
     }
 }
