@@ -25,5 +25,27 @@ public class SeguimientoAnimal {
         this.encuestas = new ArrayList<>(1000);
     }
 
+    public Adopcion getAdopcion() {
+        return adopcion;
+    }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public Usuario getVisitadorResponsable() {
+        return visitadorResponsable;
+    }
+
+    public CadenciaVisita getCadenciaVisita() {
+        return cadenciaVisita;
+    }
+
+    public Recordador getMetodoRecordatorio() {
+        return metodoRecordatorio;
+    }
+
+    public ArrayList<EncuestaAnimal> getEncuestas() {
+        return encuestas;
+    }
 }

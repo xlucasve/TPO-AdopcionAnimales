@@ -41,16 +41,16 @@ public class FichaTecnica {
         return historialTratamientosMedicos;
     }
 
-    public void setHistorialTratamientosMedicos(ArrayList<TratamientoMedico> historialTratamientosMedicos) {
-        this.historialTratamientosMedicos = historialTratamientosMedicos;
+    public void agregarTratamientoMedico(TratamientoMedico tratamientoMedico){
+        historialTratamientosMedicos.add(tratamientoMedico);
     }
 
     public ArrayList<SeguimientoAnimal> getHistorialSeguimientoAnimal() {
         return historialSeguimientoAnimal;
     }
 
-    public void setHistorialSeguimientoAnimal(ArrayList<SeguimientoAnimal> historialSeguimientoAnimal) {
-        this.historialSeguimientoAnimal = historialSeguimientoAnimal;
+    public void agregarSeguimientoAnimal(SeguimientoAnimal seguimientoAnimal){
+        historialSeguimientoAnimal.add(seguimientoAnimal);
     }
 
     public boolean isAdoptado() {
@@ -69,7 +69,7 @@ public class FichaTecnica {
         this.estrategiaExportar = estrategiaExportar;
     }
 
-    public void exportart(){
+    public void exportar(){
         estrategiaExportar.exportarFicha(this);
     }
 }

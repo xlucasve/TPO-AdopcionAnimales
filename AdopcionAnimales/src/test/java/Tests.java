@@ -1,8 +1,9 @@
-import Controllers.AlarmaController;
-import Controllers.ClienteController;
-import Controllers.FichaTecnicaController;
-import Controllers.UsuarioController;
+import Controllers.*;
 import Modelo.Alarma.*;
+import Modelo.Animal.Adopcion;
+import Modelo.Animal.ExportarPDF;
+import Modelo.Animal.Seguimiento.SeguimientoAnimal;
+import Modelo.Animal.TratamientoMedico;
 import Modelo.Cliente.Cliente;
 import Modelo.Animal.FichaTecnica;
 import Modelo.Recordatorio.*;
@@ -81,10 +82,18 @@ public class Tests {
         Cliente cliente1 = clienteController.crearCliente("ClienteNombre", "ClienteApellido", 13434343, "Cliente@email.com", 1184302340, "Soltero", "Programador", 1, "Quiero un animal", "Perros y gatos");
 
         FichaTecnicaController fichaTecnicaController = FichaTecnicaController.getInstancia();
-        FichaTecnica fichaTecnica = fichaTecnicaController.crearFichaTecnica(1,false,null);
+        FichaTecnica fichaTecnica = fichaTecnicaController.crearFichaTecnica(1,false,new ExportarPDF());
 
         clienteController.realizarAdopcion(1,cliente1);
 
 
+    }
+
+    @Test
+    public void testExportarFicha(){
+        FichaTecnicaController fichaTecnicaController = FichaTecnicaController.getInstancia();
+        FichaTecnica fichaTecnica = fichaTecnicaController.crearFichaTecnica(1,false,new ExportarPDF());
+
+        fichaTecnica.exportar();
     }
 }
