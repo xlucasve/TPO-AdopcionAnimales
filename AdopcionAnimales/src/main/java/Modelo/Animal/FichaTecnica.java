@@ -12,12 +12,12 @@ public class FichaTecnica {
     private boolean adoptado;
     private EstrategiaExportar estrategiaExportar;
 
-    public FichaTecnica(int idFicha, boolean adoptado, EstrategiaExportar estrategiaExportar) {
+    public FichaTecnica(int idFicha,boolean enTratamiento, EstrategiaExportar estrategiaExportar) {
         this.idFicha = idFicha;
-        this.enTratamiento = false;
+        this.enTratamiento = enTratamiento;
         this.historialTratamientosMedicos = new ArrayList<>();
         this.historialSeguimientoAnimal = new ArrayList<>();
-        this.adoptado = adoptado;
+        this.adoptado = false;
         this.estrategiaExportar = estrategiaExportar;
     }
 
@@ -41,16 +41,16 @@ public class FichaTecnica {
         return historialTratamientosMedicos;
     }
 
-    public void setHistorialTratamientosMedicos(ArrayList<TratamientoMedico> historialTratamientosMedicos) {
-        this.historialTratamientosMedicos = historialTratamientosMedicos;
+    public void agregarTratamientoMedico(TratamientoMedico tratamientoMedico){
+        historialTratamientosMedicos.add(tratamientoMedico);
     }
 
     public ArrayList<SeguimientoAnimal> getHistorialSeguimientoAnimal() {
         return historialSeguimientoAnimal;
     }
 
-    public void setHistorialSeguimientoAnimal(ArrayList<SeguimientoAnimal> historialSeguimientoAnimal) {
-        this.historialSeguimientoAnimal = historialSeguimientoAnimal;
+    public void agregarSeguimientoAnimal(SeguimientoAnimal seguimientoAnimal){
+        historialSeguimientoAnimal.add(seguimientoAnimal);
     }
 
     public boolean isAdoptado() {
@@ -69,7 +69,7 @@ public class FichaTecnica {
         this.estrategiaExportar = estrategiaExportar;
     }
 
-    public void exportart(){
+    public void exportar(){
         estrategiaExportar.exportarFicha(this);
     }
 }

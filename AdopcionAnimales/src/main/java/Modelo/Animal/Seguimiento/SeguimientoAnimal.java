@@ -16,12 +16,37 @@ public class SeguimientoAnimal {
     private Recordador metodoRecordatorio;
     private ArrayList<EncuestaAnimal> encuestas;
 
-    public SeguimientoAnimal(Adopcion adopcion, Cliente cliente, Usuario visitadorResponsable, CadenciaVisita cadenciaVisita, Recordador metodoRecordatorio) {
+    public SeguimientoAnimal(Adopcion adopcion, Cliente cliente, Usuario visitadorResponsable, CadenciaVisita cadenciaVisita, Recordador metodoRecordatorio){
         this.adopcion = adopcion;
         this.cliente = cliente;
         this.visitadorResponsable = visitadorResponsable;
         this.cadenciaVisita = cadenciaVisita;
         this.metodoRecordatorio = metodoRecordatorio;
+        this.encuestas = new ArrayList<>(1000);
+    }
+
+    public Adopcion getAdopcion() {
+        return adopcion;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public Usuario getVisitadorResponsable() {
+        return visitadorResponsable;
+    }
+
+    public CadenciaVisita getCadenciaVisita() {
+        return cadenciaVisita;
+    }
+
+    public Recordador getMetodoRecordatorio() {
+        return metodoRecordatorio;
+    }
+
+    public ArrayList<EncuestaAnimal> getEncuestas() {
+        return encuestas;
     }
 
     public Adopcion getAdopcion() {
