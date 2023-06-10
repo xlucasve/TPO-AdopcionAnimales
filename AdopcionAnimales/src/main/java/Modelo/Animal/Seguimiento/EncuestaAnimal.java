@@ -33,7 +33,7 @@ public class EncuestaAnimal {
     }
 
     public EnumRespuesta getEstadoAnimal() {
-        return fechaEncuesta;
+        return estadoAnimal;
     }
 
     public void setEstadoAnimal(EnumRespuesta estadoAnimal) {

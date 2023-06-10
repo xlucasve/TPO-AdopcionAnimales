@@ -1,12 +1,17 @@
 package Modelo.Animal;
 
+import Modelo.Alarma.Accion;
+import Modelo.Usuario.Usuario;
+
+import java.util.Date;
+
 public class TratamientoMedico {
     private Accion tratamientoRealizado;
     private String comentario;
     private Usuario veterinarioActor;
     private Date fechaRealizacion;
 
-    public Cliente(Accion tratamientoRealizado, String comentario, Usuario veterinarioActor, Date fechaRealizacion) {
+    public TratamientoMedico(Accion tratamientoRealizado, String comentario, Usuario veterinarioActor, Date fechaRealizacion) {
         this.comentario = comentario;
         this.tratamientoRealizado = tratamientoRealizado;
         this.veterinarioActor = veterinarioActor;
@@ -17,7 +22,7 @@ public class TratamientoMedico {
         return tratamientoRealizado;
     }
 
-    public void setTratamientoRealizado(String tratamientoRealizado) {
+    public void setTratamientoRealizado(Accion tratamientoRealizado) {
         this.tratamientoRealizado = tratamientoRealizado;
     }
 
@@ -37,11 +42,11 @@ public class TratamientoMedico {
         this.veterinarioActor = veterinarioActor;
     }
 
-    public String getfechaRealizacion() {
+    public Date getfechaRealizacion() {
         return fechaRealizacion;
     }
 
-    public void setComentario(String comentario) {
+    public void setFechaRealizacion(Date fechaRealizacion) {
         this.fechaRealizacion = fechaRealizacion;
     }
 }

@@ -29,30 +29,6 @@ public class SeguimientoAnimal {
         return adopcion;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public Usuario getVisitadorResponsable() {
-        return visitadorResponsable;
-    }
-
-    public CadenciaVisita getCadenciaVisita() {
-        return cadenciaVisita;
-    }
-
-    public Recordador getMetodoRecordatorio() {
-        return metodoRecordatorio;
-    }
-
-    public ArrayList<EncuestaAnimal> getEncuestas() {
-        return encuestas;
-    }
-
-    public Adopcion getAdopcion() {
-        return adopcion;
-    }
-
     public void setAdopcion(Adopcion adopcion) {
         this.adopcion = adopcion;
     }
@@ -87,6 +63,10 @@ public class SeguimientoAnimal {
 
     public void setMetodoRecordatorio(Recordador metodoRecordatorio) {
         this.metodoRecordatorio = metodoRecordatorio;
+    }
+
+    public ArrayList<EncuestaAnimal> getEncuestas() {
+        return encuestas;
     }
 
 }
