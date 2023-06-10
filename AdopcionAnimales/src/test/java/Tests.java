@@ -1,20 +1,33 @@
 import Controllers.*;
 import Modelo.Alarma.*;
 import Modelo.Animal.*;
+import Modelo.Animal.Seguimiento.EncuestaAnimal;
+import Modelo.Animal.Seguimiento.EnumRespuesta;
+import Modelo.Animal.Seguimiento.SeguimientoAnimal;
+import Modelo.Animal.Seguimiento.Visita;
 import Modelo.Cliente.Cliente;
 import Modelo.Recordatorio.*;
 import Modelo.Usuario.TipoUsuario;
 import Modelo.Usuario.Usuario;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+
 import java.util.Date;
+import java.util.Scanner;
 
 
 public class Tests {
+
     UsuarioController usuarioController = UsuarioController.getInstancia();
     AlarmaController alarmaController = AlarmaController.getInstancia();
     AnimalController animalController = AnimalController.getInstancia();
     FichaTecnicaController fichaTecnicaController = FichaTecnicaController.getInstancia();
     ClienteController clienteController = ClienteController.getInstancia();
+
+    EncuestaController encuestaController = EncuestaController.getInstancia();
+
+    SeguimientoAnimalController seguimientoAnimalController = SeguimientoAnimalController.getInstancia();
     Usuario veterinario1 = usuarioController.crearUsuario("Diego", "Gutierrez", 1010, 30, 40123542, "Soltero", TipoUsuario.VETERINARIO);
     Usuario visitador1 = usuarioController.crearUsuario("Lucas", "Ricardos", 1010, 30, 40123542, "Soltero", TipoUsuario.VISITADOR);
     Animal animaldomestico1 = animalController.crearAnimal(2F, (float) 0.1,true,"Gato",1,"Tomas");
@@ -27,6 +40,7 @@ public class Tests {
     Cliente cliente1 = clienteController.crearCliente("ClienteNombre", "ClienteApellido", 13434343, "Cliente@email.com", 1184302340, "Soltero", "Programador", 1, "Quiero un animal", "Perros y gatos");
     Alarma alarma1 = alarmaController.crearAlarma(fichaTecnica1);
     Cliente cliente2 = clienteController.crearCliente("ClienteNombre", "ClienteApellido", 13434343, "Cliente@email.com", 1184302340, "Soltero", "Programador", 3, "Quiero un animal", "Perros y gatos");
+
 
     @Test
     public void pruebaFechas(){
@@ -48,16 +62,28 @@ public class Tests {
 
     @Test
     public void testRealizarEncuesta(){
+        //Scanner scanner = new Scanner(System.in);
+        //System.out.println("Señor/a visitador/a, introduzca sus comentarios: ");
+        //String comentarios = scanner.nextLine();
 
+        String comentarios = "La vista de tests no nos dejo escribir el comentario, pero funciona";
+        EncuestaAnimal encuestaAnimal1 = encuestaController.crearEncuesta(new Date(), EnumRespuesta.MALO, EnumRespuesta.BUENO, EnumRespuesta.REGULAR, comentarios, visitador1, new Visita(new Date(), visitador1));
     }
 
     @Test
     public void testRealizarSeguimiento(){
+        Adopcion adopcion = clienteController.realizarAdopcion(1,cliente1);
 
+        SeguimientoAnimal seguimientoAnimal1 = seguimientoAnimalController.crearSeguimientoAnimal(adopcion, adopcion.getCliente(), visitador1, new Date(), new Date(), 5, new Recordador(new RecordatorioWhatsApp()));
+        String comentarios = "La vista de tests no nos dejo escribir el comentario, pero funciona";
+        EncuestaAnimal encuestaAnimal1 = encuestaController.crearEncuesta(new Date(), EnumRespuesta.MALO, EnumRespuesta.BUENO, EnumRespuesta.REGULAR, comentarios, visitador1, new Visita(new Date(), visitador1));
+        seguimientoAnimal1.agregarEncuesta(encuestaAnimal1);
+        fichaTecnica1.agregarSeguimientoAnimal(seguimientoAnimal1);
+        System.out.println("El seguimiento se realizo correctamente");
     }
 
     @Test
-    public void testRealizarTratamientoMedico(){
+    public void testRealizarTratamientoMedico() {
 
     }
 

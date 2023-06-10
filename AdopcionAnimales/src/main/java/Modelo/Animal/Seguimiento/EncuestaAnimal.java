@@ -11,7 +11,6 @@ public class EncuestaAnimal {
     private EnumRespuesta ambiente;
     private String comentarios;
     private Usuario encuestador;
-
     private Visita visita;
 
     public EncuestaAnimal(Date fechaEncuesta, EnumRespuesta estadoAnimal, EnumRespuesta limpiezaLugar, EnumRespuesta ambiente, String comentarios, Usuario encuestador, Visita visita) {

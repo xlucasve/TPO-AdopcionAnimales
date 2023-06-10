@@ -15,6 +15,7 @@ public class SeguimientoAnimal {
     private CadenciaVisita cadenciaVisita;
     private Recordador metodoRecordatorio;
     private ArrayList<EncuestaAnimal> encuestas;
+    private boolean continuarSeguimiento;
 
     public SeguimientoAnimal(Adopcion adopcion, Cliente cliente, Usuario visitadorResponsable, CadenciaVisita cadenciaVisita, Recordador metodoRecordatorio){
         this.adopcion = adopcion;
@@ -23,6 +24,7 @@ public class SeguimientoAnimal {
         this.cadenciaVisita = cadenciaVisita;
         this.metodoRecordatorio = metodoRecordatorio;
         this.encuestas = new ArrayList<>(1000);
+        this.continuarSeguimiento = true;
     }
 
     public Adopcion getAdopcion() {
@@ -69,4 +71,15 @@ public class SeguimientoAnimal {
         return encuestas;
     }
 
+    public void agregarEncuesta(EncuestaAnimal encuestaAnimal){
+        encuestas.add(encuestaAnimal);
+    }
+
+    public boolean isContinuarSeguimiento() {
+        return continuarSeguimiento;
+    }
+
+    public void setContinuarSeguimiento(boolean continuarSeguimiento) {
+        this.continuarSeguimiento = continuarSeguimiento;
+    }
 }

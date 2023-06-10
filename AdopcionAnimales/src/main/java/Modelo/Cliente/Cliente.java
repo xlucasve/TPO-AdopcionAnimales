@@ -30,12 +30,12 @@ public class Cliente {
         this.animalesInteresados = animalesInteresados;
     }
 
-    public void adoptar(int idFicha){
-        // aca hacer que fecha sea la del momento de la ejecucion pero nose jaja
+    public Adopcion adoptar(int idFicha){
         Date fecha = new Date();
         AdopcionController adopcionController = AdopcionController.getInstancia();
         Adopcion adopcion = adopcionController.crearAdopcion(this,false, fecha, idFicha);
         this.mascotas = this.mascotas + 1;
+        return adopcion;
     }
     public String getNombre() {
         return nombre;

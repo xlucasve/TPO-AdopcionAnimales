@@ -25,7 +25,7 @@ public class ClienteController {
         clientes.add(cliente);
         return cliente;
     }
-    public void realizarAdopcion(int idFicha, Cliente cliente){
+    public Adopcion realizarAdopcion(int idFicha, Cliente cliente){
         if (!FichaTecnicaController.getInstancia().getByID(idFicha).getAnimal().isDomestico()){
             System.out.println("El animal no es domestico, no puede ser adoptado");
         }
@@ -37,10 +37,12 @@ public class ClienteController {
                 System.out.println("Maximo de mascotas, no se puede adoptar.");
             } else {
                 System.out.println("Pasa validacion max mascotas");
-                cliente.adoptar(idFicha);
+                Adopcion adopcion = cliente.adoptar(idFicha);
                 System.out.println("El cliente tiene " + cliente.getMascotas() + " mascota/s");
+                return adopcion;
             }
         }
+        return null;
     }
 
     public Cliente getByDNI(int dni){
