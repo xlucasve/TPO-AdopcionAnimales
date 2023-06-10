@@ -19,7 +19,19 @@ public class Adopcion {
         this.animalAdoptado = idfichaTecnica;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
 
+    public boolean isMaxMascotas() {
+        return maxMascotas;
+    }
 
+    public Date getFechaAdopcion() {
+        return fechaAdopcion;
+    }
 
+    public int getAnimalAdoptado() {
+        return animalAdoptado;
+    }
 }

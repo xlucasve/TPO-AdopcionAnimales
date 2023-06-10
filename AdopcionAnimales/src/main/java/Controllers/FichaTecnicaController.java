@@ -1,13 +1,13 @@
 package Controllers;
 
-import Modelo.Animal.Animal;
-import Modelo.Animal.EstrategiaExportar;
-import Modelo.Animal.FichaTecnica;
+import Modelo.Animal.*;
 import Modelo.Animal.Seguimiento.SeguimientoAnimal;
-import Modelo.Animal.TratamientoMedico;
+
+import java.util.ArrayList;
 
 public class FichaTecnicaController {
     private static FichaTecnicaController instancia;
+    private ArrayList<FichaTecnica> fichas = new ArrayList<>();
 
     private FichaTecnicaController(){}
 
@@ -18,8 +18,10 @@ public class FichaTecnicaController {
         return instancia;
     }
 
-    public FichaTecnica crearFichaTecnica(Animal animal, int idFicha, boolean enTratamiento, EstrategiaExportar estrategiaExportar){
+    public FichaTecnica crearFichaTecnica(Animal animal, boolean enTratamiento, EstrategiaExportar estrategiaExportar){
+        int idFicha = fichas.size()+1;
         FichaTecnica fichaTecnica = new FichaTecnica(animal,idFicha,enTratamiento, estrategiaExportar);
+        fichas.add(fichaTecnica);
         return fichaTecnica;
     }
 
@@ -33,5 +35,14 @@ public class FichaTecnicaController {
 
     public void agregarSeguimientoAnimal(FichaTecnica fichaTecnica, SeguimientoAnimal seguimientoAnimal){
         fichaTecnica.agregarSeguimientoAnimal(seguimientoAnimal);
+    }
+
+    public FichaTecnica getByID(int id){
+        for (FichaTecnica fichaTecnica : fichas){
+            if (fichaTecnica.getIdFicha() == id){
+                return fichaTecnica;
+            }
+        }
+        return null;
     }
 }

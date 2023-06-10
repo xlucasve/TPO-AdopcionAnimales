@@ -1,5 +1,6 @@
 package Modelo.Alarma;
 
+import Modelo.Animal.FichaTecnica;
 import Modelo.Usuario.Usuario;
 
 import java.util.ArrayList;
@@ -12,13 +13,15 @@ public class Alarma{
     private iEstadoAlarma estadoAlarma;
     private Date ultimaEjecucion;
     private iAlarmaAdapter notificador;
+    private FichaTecnica fichaTecnica;
 
-    public Alarma(int periocidad, Date ultimaEjecucion) {
+    public Alarma(int periocidad, Date ultimaEjecucion, FichaTecnica fichaTecnica) {
         this.periocidad = periocidad;
         this.controles = new ArrayList<Control>();
         this.estadoAlarma = new NoAceptada();
         this.ultimaEjecucion = ultimaEjecucion;
         this.notificador = SistemaNotificacion.getInstancia();
+        this.fichaTecnica = fichaTecnica;
     }
 
     public int getPeriocidad() {
@@ -51,6 +54,10 @@ public class Alarma{
 
     public void setUltimaEjecucion(Date ultimaEjecucion) {
         this.ultimaEjecucion = ultimaEjecucion;
+    }
+
+    public FichaTecnica getFichaTecnica() {
+        return fichaTecnica;
     }
 
     public void dispararAlarma(){

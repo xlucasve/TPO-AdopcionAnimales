@@ -17,10 +17,10 @@ public class Tests {
     ClienteController clienteController = ClienteController.getInstancia();
     Usuario veterinario1 = usuarioController.crearUsuario("Diego", "Gutierrez", 1010, 30, 40123542, "Soltero", TipoUsuario.VETERINARIO);
     Usuario visitador1 = usuarioController.crearUsuario("Lucas", "Ricardos", 1010, 30, 40123542, "Soltero", TipoUsuario.VISITADOR);
-    Animal animaldomestico1 = animalController.crearAnimal(1, 2F, (float) 0.1,false,"Gato",1,"Tomas");
-    FichaTecnica fichaTecnica1 = fichaTecnicaController.crearFichaTecnica(animaldomestico1,1,false,new ExportarPDF());
+    Animal animaldomestico1 = animalController.crearAnimal(2F, (float) 0.1,false,"Gato",1,"Tomas");
+    FichaTecnica fichaTecnica1 = fichaTecnicaController.crearFichaTecnica(animaldomestico1,false,new ExportarPDF());
     Cliente cliente1 = clienteController.crearCliente("ClienteNombre", "ClienteApellido", 13434343, "Cliente@email.com", 1184302340, "Soltero", "Programador", 1, "Quiero un animal", "Perros y gatos");
-    Alarma alarma1 = alarmaController.crearAlarma();
+    Alarma alarma1 = alarmaController.crearAlarma(fichaTecnica1);
     @Test
     public void pruebaFechas(){
         Control control = new Control();
@@ -41,6 +41,11 @@ public class Tests {
 
     @Test
     public void testRealizarEncuesta(){
+    }
+
+    @Test
+    public void testRealizarSeguimiento(){
+
     }
 
     @Test

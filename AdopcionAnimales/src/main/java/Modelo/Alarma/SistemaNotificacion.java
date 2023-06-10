@@ -27,6 +27,7 @@ public class SistemaNotificacion implements iAlarmaAdapter{
 
     private void enviarPush(Alarma alarma){
         System.out.println("El sistema de notificacion esta alertando a los veterinarios...");
+        System.out.println("Alarma disparada, controlar animal de ficha tecnica: " + alarma.getFichaTecnica().getIdFicha());
         for (Usuario usuario: usuarios){
             if (usuario.getTipoUsuario() == TipoUsuario.VETERINARIO){
                 System.out.println("Notificando al veterinario: " + usuario.getNombre());

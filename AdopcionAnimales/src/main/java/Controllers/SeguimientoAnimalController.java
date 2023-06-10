@@ -7,10 +7,12 @@ import Modelo.Cliente.Cliente;
 import Modelo.Recordatorio.Recordador;
 import Modelo.Usuario.Usuario;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class SeguimientoAnimalController {
     private static SeguimientoAnimalController instancia;
+    private ArrayList<SeguimientoAnimal> seguimientos = new ArrayList<>();
 
     private SeguimientoAnimalController(){}
 
@@ -24,6 +26,7 @@ public class SeguimientoAnimalController {
     public SeguimientoAnimal crearSeguimientoAnimal(Adopcion adopcion, Cliente cliente, Usuario visitadorResponsable, Date horaInicio,Date horaFinal, int dias, Recordador recordador){
         CadenciaVisita cadenciaVisita = new CadenciaVisita(horaInicio,horaFinal,dias);
         SeguimientoAnimal seguimientoAnimal = new SeguimientoAnimal(adopcion, cliente, visitadorResponsable, cadenciaVisita, recordador);
+        seguimientos.add(seguimientoAnimal);
         return  seguimientoAnimal;
     }
 }
