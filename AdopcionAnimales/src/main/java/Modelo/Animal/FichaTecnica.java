@@ -5,6 +5,7 @@ import Modelo.Animal.Seguimiento.SeguimientoAnimal;
 import java.util.ArrayList;
 
 public class FichaTecnica {
+    private final Animal animal;
     private int idFicha;
     private boolean enTratamiento;
     private ArrayList<TratamientoMedico> historialTratamientosMedicos;
@@ -12,7 +13,8 @@ public class FichaTecnica {
     private boolean adoptado;
     private EstrategiaExportar estrategiaExportar;
 
-    public FichaTecnica(int idFicha,boolean enTratamiento, EstrategiaExportar estrategiaExportar) {
+    public FichaTecnica(Animal animal,int idFicha,boolean enTratamiento, EstrategiaExportar estrategiaExportar) {
+        this.animal = animal;
         this.idFicha = idFicha;
         this.enTratamiento = enTratamiento;
         this.historialTratamientosMedicos = new ArrayList<>();

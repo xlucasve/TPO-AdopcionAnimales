@@ -1,5 +1,6 @@
 package Controllers;
 
+import Modelo.Animal.Animal;
 import Modelo.Animal.EstrategiaExportar;
 import Modelo.Animal.FichaTecnica;
 import Modelo.Animal.Seguimiento.SeguimientoAnimal;
@@ -17,8 +18,8 @@ public class FichaTecnicaController {
         return instancia;
     }
 
-    public FichaTecnica crearFichaTecnica(int idFicha, boolean enTratamiento, EstrategiaExportar estrategiaExportar){
-        FichaTecnica fichaTecnica = new FichaTecnica(idFicha,enTratamiento, estrategiaExportar);
+    public FichaTecnica crearFichaTecnica(Animal animal, int idFicha, boolean enTratamiento, EstrategiaExportar estrategiaExportar){
+        FichaTecnica fichaTecnica = new FichaTecnica(animal,idFicha,enTratamiento, estrategiaExportar);
         return fichaTecnica;
     }
 
