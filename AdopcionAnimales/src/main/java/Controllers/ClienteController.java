@@ -1,9 +1,7 @@
 package Controllers;
 
-import Modelo.Animal.Adopcion;
 import Modelo.Cliente.Cliente;
 
-import java.util.Date;
 
 public class ClienteController {
 

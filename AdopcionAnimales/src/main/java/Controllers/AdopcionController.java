@@ -1,6 +1,5 @@
 package Controllers;
 
-import Modelo.Animal.FichaTecnica;
 import Modelo.Cliente.Cliente;
 import Modelo.Animal.Adopcion;
 
