@@ -35,9 +35,9 @@ public class Tests {
     FichaTecnica fichaTecnica1 = fichaTecnicaController.crearFichaTecnica(animaldomestico1,false,new ExportarPDF());
     FichaTecnica fichaTecnica2 = fichaTecnicaController.crearFichaTecnica(animalNoDomestico1,false,new ExportarPDF());
 
-    Cliente cliente1 = clienteController.crearCliente("ClienteNombre", "ClienteApellido", 13434343, "Cliente@email.com", 1184302340, "Soltero", "Programador", 1, "Quiero un animal", "Perros y gatos");
+    Cliente cliente1 = clienteController.crearCliente("ClienteNombre", "ClienteApellido", 13434343, "Cliente@email.com", 1184302340, "Soltero", "Programador", 1, "Quiero un animal", "Perros y gatos", new Recordador(new RecordatorioWhatsApp()));
     Alarma alarma1 = alarmaController.crearAlarma(fichaTecnica1);
-    Cliente cliente2 = clienteController.crearCliente("ClienteNombre", "ClienteApellido", 13434343, "Cliente@email.com", 1184302340, "Soltero", "Programador", 3, "Quiero un animal", "Perros y gatos");
+    Cliente cliente2 = clienteController.crearCliente("ClienteNombre", "ClienteApellido", 13434343, "Cliente@email.com", 1184302340, "Soltero", "Programador", 3, "Quiero un animal", "Perros y gatos", new Recordador(new RecordatorioWhatsApp()));
 
 
     @Test
@@ -72,7 +72,7 @@ public class Tests {
     public void testRealizarSeguimiento(){
         Adopcion adopcion = clienteController.realizarAdopcion(1,cliente1);
 
-        SeguimientoAnimal seguimientoAnimal1 = seguimientoAnimalController.crearSeguimientoAnimal(adopcion, adopcion.getCliente(), visitador1, new Date(), new Date(), 5, new Recordador(new RecordatorioWhatsApp()));
+        SeguimientoAnimal seguimientoAnimal1 = seguimientoAnimalController.crearSeguimientoAnimal(adopcion, adopcion.getCliente(), visitador1, new Date(), new Date(), 5);
         String comentarios = "La vista de tests no nos dejo escribir el comentario, pero funciona";
         EncuestaAnimal encuestaAnimal1 = encuestaController.crearEncuesta(new Date(), EnumRespuesta.MALO, EnumRespuesta.BUENO, EnumRespuesta.REGULAR, comentarios, visitador1, new Visita(new Date(), visitador1));
         seguimientoAnimal1.agregarEncuesta(encuestaAnimal1);
@@ -117,7 +117,7 @@ public class Tests {
     public void testExportarFicha(){
         Adopcion adopcion = clienteController.realizarAdopcion(1,cliente1);
 
-        SeguimientoAnimal seguimientoAnimal1 = seguimientoAnimalController.crearSeguimientoAnimal(adopcion, adopcion.getCliente(), visitador1, new Date(), new Date(), 5, new Recordador(new RecordatorioWhatsApp()));
+        SeguimientoAnimal seguimientoAnimal1 = seguimientoAnimalController.crearSeguimientoAnimal(adopcion, adopcion.getCliente(), visitador1, new Date(), new Date(), 5);
         String comentarios = "La vista de tests no nos dejo escribir el comentario, pero funciona";
         EncuestaAnimal encuestaAnimal1 = encuestaController.crearEncuesta(new Date(), EnumRespuesta.MALO, EnumRespuesta.BUENO, EnumRespuesta.REGULAR, comentarios, visitador1, new Visita(new Date(), visitador1));
         seguimientoAnimal1.agregarEncuesta(encuestaAnimal1);

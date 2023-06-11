@@ -2,6 +2,7 @@ package Controllers;
 
 import Modelo.Animal.Adopcion;
 import Modelo.Cliente.Cliente;
+import Modelo.Recordatorio.Recordador;
 
 import java.util.ArrayList;
 
@@ -20,8 +21,8 @@ public class ClienteController {
         return instancia;
     }
 
-    public Cliente crearCliente(String nombre, String apellido, int dni, String email, int telefono, String estadoCivil, String ocupacion, int mascotas, String motivoAdopcion, String animalesInteresados){
-        Cliente cliente = new Cliente(nombre, apellido, dni, email, telefono, estadoCivil, ocupacion, mascotas, motivoAdopcion,animalesInteresados);
+    public Cliente crearCliente(String nombre, String apellido, int dni, String email, int telefono, String estadoCivil, String ocupacion, int mascotas, String motivoAdopcion, String animalesInteresados, Recordador recordador){
+        Cliente cliente = new Cliente(nombre, apellido, dni, email, telefono, estadoCivil, ocupacion, mascotas, motivoAdopcion,animalesInteresados, recordador);
         clientes.add(cliente);
         return cliente;
     }

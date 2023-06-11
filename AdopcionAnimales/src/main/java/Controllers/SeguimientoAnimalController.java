@@ -23,9 +23,9 @@ public class SeguimientoAnimalController {
         return instancia;
     }
 
-    public SeguimientoAnimal crearSeguimientoAnimal(Adopcion adopcion, Cliente cliente, Usuario visitadorResponsable, Date horaInicio,Date horaFinal, int dias, Recordador recordador){
+    public SeguimientoAnimal crearSeguimientoAnimal(Adopcion adopcion, Cliente cliente, Usuario visitadorResponsable, Date horaInicio,Date horaFinal, int dias){
         CadenciaVisita cadenciaVisita = new CadenciaVisita(horaInicio,horaFinal,dias);
-        SeguimientoAnimal seguimientoAnimal = new SeguimientoAnimal(adopcion, cliente, visitadorResponsable, cadenciaVisita, recordador);
+        SeguimientoAnimal seguimientoAnimal = new SeguimientoAnimal(adopcion, cliente, visitadorResponsable, cadenciaVisita);
         seguimientos.add(seguimientoAnimal);
         return  seguimientoAnimal;
     }
