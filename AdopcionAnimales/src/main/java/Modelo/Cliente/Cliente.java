@@ -2,6 +2,7 @@ package Modelo.Cliente;
 
 import Controllers.AdopcionController;
 import Modelo.Animal.Adopcion;
+import Modelo.Recordatorio.Recordador;
 
 import java.util.Date;
 
@@ -16,8 +17,10 @@ public class Cliente {
     private int mascotas;
     private String motivoAdopcion;
     private String animalesInteresados;
+    private Recordador metodoRecordatorio;
 
-    public Cliente(String nombre, String apellido, int dni, String email, int telefono, String estadoCivil, String ocupacion, int mascotas, String motivoAdopcion, String animalesInteresados) {
+
+    public Cliente(String nombre, String apellido, int dni, String email, int telefono, String estadoCivil, String ocupacion, int mascotas, String motivoAdopcion, String animalesInteresados, Recordador metodoRecordatorio) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -28,6 +31,7 @@ public class Cliente {
         this.mascotas = mascotas;
         this.motivoAdopcion = motivoAdopcion;
         this.animalesInteresados = animalesInteresados;
+        this.metodoRecordatorio = metodoRecordatorio;
     }
 
     public Adopcion adoptar(int idFicha){
