@@ -9,8 +9,9 @@ public class Usuario {
     private int dni;
     private String estadoCivil;
     private TipoUsuario tipoUsuario;
+    private iUsuarioAdapter usuarioAdapter;
 
-    public Usuario(String nombre, String apellido, int telefono, int edad, int dni, String estadoCivil, TipoUsuario tipoUsuario) {
+    public Usuario(String nombre, String apellido, int telefono, int edad, int dni, String estadoCivil, TipoUsuario tipoUsuario, iUsuarioAdapter usuarioAdapter) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
@@ -18,6 +19,7 @@ public class Usuario {
         this.dni = dni;
         this.estadoCivil = estadoCivil;
         this.tipoUsuario = tipoUsuario;
+        this.usuarioAdapter = usuarioAdapter;
     }
 
     public String getNombre() {
@@ -77,6 +79,6 @@ public class Usuario {
     }
 
     public void obtenerDatos(int contrasena){
-
+        usuarioAdapter.obtenerDatos(contrasena);
     }
 }

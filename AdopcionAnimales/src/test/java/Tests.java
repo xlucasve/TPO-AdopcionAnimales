@@ -9,12 +9,10 @@ import Modelo.Cliente.Cliente;
 import Modelo.Recordatorio.*;
 import Modelo.Usuario.TipoUsuario;
 import Modelo.Usuario.Usuario;
-import org.junit.jupiter.api.BeforeEach;
+import Modelo.Usuario.UsuarioAdapter;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 
 import java.util.Date;
-import java.util.Scanner;
 
 
 public class Tests {
@@ -28,8 +26,8 @@ public class Tests {
     EncuestaController encuestaController = EncuestaController.getInstancia();
 
     SeguimientoAnimalController seguimientoAnimalController = SeguimientoAnimalController.getInstancia();
-    Usuario veterinario1 = usuarioController.crearUsuario("Diego", "Gutierrez", 1010, 30, 40123542, "Soltero", TipoUsuario.VETERINARIO);
-    Usuario visitador1 = usuarioController.crearUsuario("Lucas", "Ricardos", 1010, 30, 40123542, "Soltero", TipoUsuario.VISITADOR);
+    Usuario veterinario1 = usuarioController.crearUsuario("Diego", "Gutierrez", 1010, 30, 40123542, "Soltero", TipoUsuario.VETERINARIO, new UsuarioAdapter());
+    Usuario visitador1 = usuarioController.crearUsuario("Lucas", "Ricardos", 1010, 30, 40123542, "Soltero", TipoUsuario.VISITADOR, new UsuarioAdapter());
     Animal animaldomestico1 = animalController.crearAnimal(2F, (float) 0.1,true,"Gato",1,"Tomas");
     Animal animalNoDomestico1 = animalController.crearAnimal(2F, (float) 0.1,false,"Gato",1,"Tomas");
 
@@ -43,7 +41,7 @@ public class Tests {
 
 
     @Test
-    public void pruebaFechas(){
+    public void testFechasDeAlarma(){
         Control control = new Control();
         control.agregarAccionIndividual(new Accion("Chequear oreja perro", "Mirar si el perro tiene hongos en la oreja"));
         alarmaController.agregarControl(alarma1, control);
@@ -117,6 +115,18 @@ public class Tests {
 
     @Test
     public void testExportarFicha(){
+        Adopcion adopcion = clienteController.realizarAdopcion(1,cliente1);
+
+        SeguimientoAnimal seguimientoAnimal1 = seguimientoAnimalController.crearSeguimientoAnimal(adopcion, adopcion.getCliente(), visitador1, new Date(), new Date(), 5, new Recordador(new RecordatorioWhatsApp()));
+        String comentarios = "La vista de tests no nos dejo escribir el comentario, pero funciona";
+        EncuestaAnimal encuestaAnimal1 = encuestaController.crearEncuesta(new Date(), EnumRespuesta.MALO, EnumRespuesta.BUENO, EnumRespuesta.REGULAR, comentarios, visitador1, new Visita(new Date(), visitador1));
+        seguimientoAnimal1.agregarEncuesta(encuestaAnimal1);
+        fichaTecnicaController.agregarSeguimientoAnimal(fichaTecnica1, seguimientoAnimal1);
         fichaTecnica1.exportar();
+    }
+
+    @Test
+    public void testLoguearUsuario(){
+        usuarioController.obtenerDatos(152351, veterinario1);
     }
 }
