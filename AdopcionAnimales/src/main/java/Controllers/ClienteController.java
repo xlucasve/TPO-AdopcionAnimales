@@ -1,6 +1,7 @@
 package Controllers;
 
 import Modelo.Animal.Adopcion;
+import Modelo.Animal.FichaTecnica;
 import Modelo.Cliente.Cliente;
 import Modelo.Recordatorio.Recordador;
 
@@ -26,20 +27,25 @@ public class ClienteController {
         clientes.add(cliente);
         return cliente;
     }
-    public Adopcion realizarAdopcion(int idFicha, Cliente cliente){
-        if (!FichaTecnicaController.getInstancia().getByID(idFicha).getAnimal().isDomestico()){
+    public Adopcion realizarAdopcion(FichaTecnica fichaTecnica, Cliente cliente){
+        if (!fichaTecnica.getAnimal().isDomestico()){
             System.out.println("El animal no es domestico, no puede ser adoptado");
         }
-        else if (FichaTecnicaController.getInstancia().getByID(idFicha).isEnTratamiento()){
+        else if (fichaTecnica.isEnTratamiento()){
             System.out.println("El animal esta siendo tratado, no puede ser adoptado");
+        }
+        else if (fichaTecnica.isAdoptado()){
+            System.out.println("El animal ya esta adoptado");
         }
         else {
             if (cliente.getMascotas() >= 2) {
                 System.out.println("Maximo de mascotas, no se puede adoptar.");
             } else {
                 System.out.println("Pasa validacion max mascotas");
-                Adopcion adopcion = cliente.adoptar(idFicha);
+                Adopcion adopcion = cliente.adoptar(fichaTecnica);
+                fichaTecnica.setAdoptado(true);
                 System.out.println("El cliente tiene " + cliente.getMascotas() + " mascota/s");
+
                 return adopcion;
             }
         }

@@ -1,5 +1,6 @@
 package Controllers;
 
+import Modelo.Animal.FichaTecnica;
 import Modelo.Cliente.Cliente;
 import Modelo.Animal.Adopcion;
 
@@ -20,8 +21,8 @@ public class AdopcionController {
         return instancia;
 
     }
-    public Adopcion crearAdopcion(Cliente cliente, boolean maxMascotas, Date fechaAdopcion, int idfichaTecnica){
-        Adopcion adopcion = new Adopcion(cliente,maxMascotas,fechaAdopcion,idfichaTecnica);
+    public Adopcion crearAdopcion(Cliente cliente, boolean maxMascotas, Date fechaAdopcion, FichaTecnica fichaTecnica){
+        Adopcion adopcion = new Adopcion(cliente,maxMascotas,fechaAdopcion,fichaTecnica);
         System.out.println("Adopcion creada");
         adopciones.add(adopcion);
         return adopcion;

@@ -2,6 +2,7 @@ package Modelo.Cliente;
 
 import Controllers.AdopcionController;
 import Modelo.Animal.Adopcion;
+import Modelo.Animal.FichaTecnica;
 import Modelo.Recordatorio.Recordador;
 
 import java.util.Date;
@@ -34,10 +35,10 @@ public class Cliente {
         this.metodoRecordatorio = metodoRecordatorio;
     }
 
-    public Adopcion adoptar(int idFicha){
+    public Adopcion adoptar(FichaTecnica fichaTecnica){
         Date fecha = new Date();
         AdopcionController adopcionController = AdopcionController.getInstancia();
-        Adopcion adopcion = adopcionController.crearAdopcion(this,false, fecha, idFicha);
+        Adopcion adopcion = adopcionController.crearAdopcion(this,false, fecha, fichaTecnica);
         this.mascotas = this.mascotas + 1;
         return adopcion;
     }

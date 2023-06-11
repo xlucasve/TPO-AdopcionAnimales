@@ -12,6 +12,7 @@ import Modelo.Usuario.Usuario;
 import Modelo.Usuario.UsuarioAdapter;
 import org.junit.jupiter.api.Test;
 
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -70,7 +71,7 @@ public class Tests {
 
     @Test
     public void testRealizarSeguimiento(){
-        Adopcion adopcion = clienteController.realizarAdopcion(1,cliente1);
+        Adopcion adopcion = clienteController.realizarAdopcion(fichaTecnica1,cliente1);
 
         SeguimientoAnimal seguimientoAnimal1 = seguimientoAnimalController.crearSeguimientoAnimal(adopcion, adopcion.getCliente(), visitador1, new Date(), new Date(), 5);
         String comentarios = "La vista de tests no nos dejo escribir el comentario, pero funciona";
@@ -82,7 +83,8 @@ public class Tests {
 
     @Test
     public void testRealizarTratamientoMedico() {
-
+        TratamientoMedico tratamientoMedico = new TratamientoMedico(new Accion("Chequeo de ojos", "Controlar parasitos en globulo ocular")
+                ,"El animal tiene dos ojos", veterinario1, new Date(1980, Calendar.JULY, 30));
     }
 
     @Test
@@ -100,22 +102,22 @@ public class Tests {
 
     @Test
     public void testRealizarAdopcion(){
-        clienteController.realizarAdopcion(1,cliente1);
+        clienteController.realizarAdopcion(fichaTecnica1,cliente1);
     }
 
     @Test
     public void testAdoptarAnimalMaxMascotas(){
-        clienteController.realizarAdopcion(1, cliente2);
+        clienteController.realizarAdopcion(fichaTecnica1, cliente2);
     }
 
     @Test
     public void testAdoptarAnimalNoDomestico(){
-        clienteController.realizarAdopcion(2, cliente1);
+        clienteController.realizarAdopcion(fichaTecnica2, cliente1);
     }
 
     @Test
     public void testExportarFicha(){
-        Adopcion adopcion = clienteController.realizarAdopcion(1,cliente1);
+        Adopcion adopcion = clienteController.realizarAdopcion(fichaTecnica1,cliente1);
 
         SeguimientoAnimal seguimientoAnimal1 = seguimientoAnimalController.crearSeguimientoAnimal(adopcion, adopcion.getCliente(), visitador1, new Date(), new Date(), 5);
         String comentarios = "La vista de tests no nos dejo escribir el comentario, pero funciona";

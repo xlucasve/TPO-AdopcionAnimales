@@ -10,13 +10,13 @@ public class Adopcion {
     private Cliente cliente;
     private boolean maxMascotas;
     private Date fechaAdopcion;
-    private int animalAdoptado;
+    private FichaTecnica animalAdoptado;
 
-    public Adopcion(Cliente cliente, boolean maxMascotas, Date fechaAdopcion, int idfichaTecnica){
+    public Adopcion(Cliente cliente, boolean maxMascotas, Date fechaAdopcion, FichaTecnica fichaTecnica){
         this.cliente = cliente;
         this.maxMascotas = maxMascotas;
         this.fechaAdopcion = fechaAdopcion;
-        this.animalAdoptado = idfichaTecnica;
+        this.animalAdoptado = fichaTecnica;
     }
 
     public Cliente getCliente() {
@@ -31,7 +31,7 @@ public class Adopcion {
         return fechaAdopcion;
     }
 
-    public int getAnimalAdoptado() {
+    public FichaTecnica getAnimalAdoptado() {
         return animalAdoptado;
     }
 }
