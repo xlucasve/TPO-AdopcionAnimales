@@ -67,6 +67,8 @@ public class Tests {
 
         String comentarios = "La vista de tests no nos dejo escribir el comentario, pero funciona";
         EncuestaAnimal encuestaAnimal1 = encuestaController.crearEncuesta(new Date(), EnumRespuesta.MALO, EnumRespuesta.BUENO, EnumRespuesta.REGULAR, comentarios, visitador1, new Visita(new Date(), visitador1));
+        System.out.println(encuestaAnimal1.getComentarios());
+        System.out.println("La encuesta se realizo correctamente");
     }
 
     @Test
@@ -85,6 +87,8 @@ public class Tests {
     public void testRealizarTratamientoMedico() {
         TratamientoMedico tratamientoMedico = new TratamientoMedico(new Accion("Chequeo de ojos", "Controlar parasitos en globulo ocular")
                 ,"El animal tiene dos ojos", veterinario1, new Date(1980, Calendar.JULY, 30));
+        System.out.println(tratamientoMedico.getComentario());
+        System.out.println("El tratamiento Medico se realizo correctamente");
     }
 
     @Test
